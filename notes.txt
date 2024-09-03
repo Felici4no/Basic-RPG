@@ -1,0 +1,5 @@
+models
+    contém classes que representam entidades principais (por exemplo, User, Product, Order).
+core
+    contém classes e funções principais que fazem parte da lógica central da aplicação.
+
