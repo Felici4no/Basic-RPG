@@ -7,6 +7,7 @@ class User:
         self.mana = 50  # Mana inicial
         self.experience = 0  # Experiência inicial
         self.inventory = []  # Inventário inicial (vazio)
+        self.defense = 0  # Defesa inicial
 
     def level_up(self):
         """Método para aumentar o nível do jogador."""
@@ -16,13 +17,14 @@ class User:
         print(f"{self.name} subiu para o nível {self.level}!")
 
     def take_damage(self, damage):
-        """Método para o jogador receber dano."""
-        self.health -= damage
+        """Método para o jogador receber dano, considerando a defesa."""
+        net_damage = max(damage - self.defense, 0)  # Calcula o dano efetivo
+        self.health -= net_damage
         if self.health <= 0:
             self.health = 0
             print(f"{self.name} foi derrotado.")
         else:
-            print(f"{self.name} recebeu {damage} de dano e agora tem {self.health} de vida.")
+            print(f"{self.name} recebeu {net_damage} de dano e agora tem {self.health} de vida.")
 
     def use_mana(self, amount):
         """Método para o jogador usar mana."""
