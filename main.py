@@ -1,6 +1,6 @@
 from models import *
 from core.engine import *
-
+'''
 # Exemplo de uso da classe
 player1 = User(name="Aragorn", character_class="Guerreiro")
 player1.add_to_inventory("Espada Longa")
@@ -21,3 +21,9 @@ player = User(name="Aragorn", character_class="Guerreiro")
 healing_potion.use(player)
 sword.use(player)
 shield.equip(player)
+'''
+
+
+
+
+Main_Player = User(name=nickname(), character_class=class_Selector())
