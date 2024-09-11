@@ -1,5 +1,6 @@
 from models import *
 from core.engine import *
+
 '''
 # Exemplo de uso da classe
 player1 = User(name="Aragorn", character_class="Guerreiro")
@@ -22,8 +23,34 @@ healing_potion.use(player)
 sword.use(player)
 shield.equip(player)
 '''
+#Inicio do game - nick e classe
+name = nickname()
+central_aguarda()
+character_class = class_Selector()
+
+#Cria o objeto
+Main_Player = User(name, character_class)
+
+#Add espada ao inventario
+if Main_Player.character_class == "Maritmus":
+    sword = Weapon("MaritmusSup", "Uma espada profunda que causa 15 de dano", 100, 15)
+    Main_Player.add_to_inventory(sword.name)
+elif Main_Player.character_class == "Flanejos":
+    sword = Weapon("FlanejosRock", "Uma espada flanejante que causa 15 de dano", 100, 15)
+    Main_Player.add_to_inventory(sword.name)
+elif Main_Player.character_class == "Levitus":
+    sword = Weapon("LevitusSky", "Uma espada flutuante que causa 15 de dano", 100, 15)
+    Main_Player.add_to_inventory(sword.name)
+
+central_aguarda()
+
+Main_Player.gain_experience(10)
+Main_Player.show_inventory()
+
+central_aguarda()
+pulalinha(5)
 
 
+text_msg('Game', 'Pronto?')
 
-
-Main_Player = User(name=nickname(), character_class=class_Selector())
+central_aguarda()
