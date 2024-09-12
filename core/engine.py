@@ -1,10 +1,53 @@
 from time import sleep
 
+#Cores
+# Cores de texto
+vermelho = '\033[31m'
+verde = '\033[32m'
+azul = '\033[34m'
+ciano = '\033[36m'
+magenta = '\033[35m'
+amarelo = '\033[33m'
+preto = '\033[30m'
+branco = '\033[37m'
+
+# Estilos
+restaura_cor_original = '\033[0;0m'  # Restaura a cor original
+negrito = '\033[1m'                  # Negrito
+reverso = '\033[2m'                  # Reverso (inverte cor de texto e fundo)
+
+# Cores de fundo
+fundo_preto = '\033[40m'
+fundo_vermelho = '\033[41m'
+fundo_verde = '\033[42m'
+fundo_amarelo = '\033[43m'
+fundo_azul = '\033[44m'
+fundo_magenta = '\033[45m'
+fundo_ciano = '\033[46m'
+fundo_branco = '\033[47m'
+
+#Felici4no
+
+print(f"{negrito}By {vermelho}F{verde}e{amarelo}l{azul}i{magenta}c{preto}i{vermelho}4{ciano}n{verde}o  {restaura_cor_original}")
+
+
+def mudar_cor(texto, cor=branco, estilo=restaura_cor_original, fundo=restaura_cor_original):
+
+    print(f"{estilo}{cor}{fundo}{texto}{restaura_cor_original}")
+
+
+mudar_cor("Olá, mundo!", cor=vermelho, estilo=negrito, fundo='')
+print('\n')
+# Exemplo de uso
+##
+
 entrA = '<< '
 saI = '>> '
 def text_msg(nick, txt):
     if nick != '':
+        print(negrito)
         print(f"{nick.title()}:")
+        print(restaura_cor_original)
     print(f"- {txt}")
 # Erro
 def typeErro(func):  # Usado em funções como última condicional
@@ -27,18 +70,20 @@ def nickname():
         if nick == '':
             text_msg('Game', 'Nickname is empty')
         elif len(nick) < 4 or len(nick) > 20:
-            text_msg('Game', 'Nickname is invalid. Deve ter entre 4 e 20 caracteres.')
+            text_msg('Game', f'Nickname is {vermelho}invalid{restaura_cor_original}. Deve ter entre 4 e 20 caracteres.')
         else:
-            text_msg('Game', f'Nickname is valid. Bem-vindo(a), {nick.title()}!')
+            text_msg('Game', f'Nickname is {verde}valid{restaura_cor_original}. Bem-vindo(a),{ciano}{nick.title()}{restaura_cor_original}!')
             return nick.title()
 
 # Seleção de Espada
 def class_Selector():
     while True:
-        text_msg('Game', 'Selecione uma espada:')
-        text_msg('', '[1] MaritmusSup')
-        text_msg('', '[2] FlanejosRock')
-        text_msg('', '[3] LevitusSky')
+        print(negrito)
+        print('Selecione uma espada:')
+        print(ciano)
+        print('- [1] MaritmusSup\n- [2] FlanejosRock\n- [3] LevitusSky')
+        print(restaura_cor_original)
+
         r = input(entrA)
         if r in ['1', '2', '3']:
             if r == '1':
