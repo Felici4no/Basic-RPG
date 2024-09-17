@@ -27,17 +27,12 @@ fundo_ciano = '\033[46m'
 fundo_branco = '\033[47m'
 
 #Felici4no
-
 print(f"{negrito}By {vermelho}F{verde}e{amarelo}l{azul}i{magenta}c{preto}i{vermelho}4{ciano}n{verde}o  {restaura_cor_original}")
-
 
 def mudar_cor(texto, cor=branco, estilo=restaura_cor_original, fundo=restaura_cor_original):
 
     print(f"{estilo}{cor}{fundo}{texto}{restaura_cor_original}")
 
-
-mudar_cor("Olá, mundo!", cor=vermelho, estilo=negrito, fundo='')
-print('\n')
 # Exemplo de uso
 ##
 
@@ -139,3 +134,18 @@ def central_aguarda():
     aguarda()
     print('//')
     pulalinha(3)
+
+def question(Questao):
+    while True:
+        print(negrito,'\n -',Questao,restaura_cor_original)
+        r = input('y / n ?\n')
+        if r == 'y' or r == 'Y':
+            return True
+        elif r == 'n' or r == 'N':
+            return False
+        else:
+            pulalinha(3)
+            print('Respostas Inválida')
+
+def startutorial():
+    print(negrito,'O jogo é um modo história',negrito,restaura_cor_original)

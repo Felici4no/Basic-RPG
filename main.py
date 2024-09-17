@@ -51,6 +51,10 @@ central_aguarda()
 pulalinha(5)
 
 
-text_msg('Game', 'Pronto?')
+tutorial = question('Deseja iniciar o tutorial?')
+if tutorial == True:
+    print('Tutorial iniciado')
+elif tutorial == False:
+    print('Partindo direto para o game.')
 
 central_aguarda()
